@@ -1,0 +1,8 @@
+<resources>
+
+    <color name="color_tag_text_normal">#000000</color>
+    <color name="color_tag_text_activated">#00ff00</color>
+    <color name="color_addtag_text_normal">#00ff00</color>
+    <color name="color_addtag_text_activated">#ffffff</color>
+
+</resources>
