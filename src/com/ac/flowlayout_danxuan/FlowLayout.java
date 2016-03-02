@@ -33,8 +33,8 @@ public class FlowLayout extends ViewGroup {
 	
 	@Override
 	protected ViewGroup.LayoutParams generateDefaultLayoutParams() {
-		return new MarginLayoutParams(LayoutParams.MATCH_PARENT,
-				LayoutParams.MATCH_PARENT);
+		return new MarginLayoutParams(LayoutParams.WRAP_CONTENT,
+				LayoutParams.WRAP_CONTENT);
 	}
 	
 	/**
@@ -46,6 +46,7 @@ public class FlowLayout extends ViewGroup {
 		// 获得它的父容器为它设置的测量模式和大小
 		int sizeWidth = MeasureSpec.getSize(widthMeasureSpec);
 		int sizeHeight = MeasureSpec.getSize(heightMeasureSpec);
+		
 		int modeWidth = MeasureSpec.getMode(widthMeasureSpec);
 		int modeHeight = MeasureSpec.getMode(heightMeasureSpec);
 		
@@ -67,6 +68,7 @@ public class FlowLayout extends ViewGroup {
 		
 		// 遍历每个子元素
 		for (int i = 0; i < cCount; i++) {
+			
 			View child = getChildAt(i);
 			// 测量每一个child的宽和高
 			measureChild(child, widthMeasureSpec, heightMeasureSpec);
@@ -90,7 +92,7 @@ public class FlowLayout extends ViewGroup {
 				// 开启记录下一行的高度
 				lineHeight = childHeight;
 			} else {
-				// 否则累加值lineWidth,lineHeight取最大高度
+				// 否则  累加值lineWidth,lineHeight取最大高度
 				lineWidth += childWidth;
 				lineHeight = Math.max(lineHeight, childHeight);
 			}
@@ -99,7 +101,6 @@ public class FlowLayout extends ViewGroup {
 				width = Math.max(width, lineWidth);
 				height += lineHeight;
 			}
-
 		}
 		setMeasuredDimension((modeWidth == MeasureSpec.EXACTLY) ? sizeWidth : width,
 				(modeHeight == MeasureSpec.EXACTLY) ? sizeHeight : height);
